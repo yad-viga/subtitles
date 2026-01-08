@@ -11,6 +11,6 @@ Examples of such actions can be the following:
 
 *) Move all the entries, starting from a given entry (eg. from entry nr 53), up by 10 positions. Move only the text, not its timing. Keep the timing as it was in the original file.
 
-The code from the scripts can be executed in https://colab.research.google.com. It is an environment available for free.
 More details about each script are commented out in respective files.
 The filenames are self-describing.
+The code from the scripts can be executed in https://colab.research.google.com. It is an environment available for free.

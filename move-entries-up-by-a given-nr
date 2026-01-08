@@ -1,0 +1,56 @@
+# This script reads the input.srt file.
+# And from the entry nr START_ENTRY till the entry nr END_ENTRY 
+# it moves all the entries up by SHIFT_UP positions.
+# The file with new changes is saved as output.srt.
+
+# ========= CONFIG =========
+INPUT_FILE = "input.srt"      # change later
+OUTPUT_FILE = "output.srt"
+
+START_ENTRY = 208
+END_ENTRY = 309
+SHIFT_UP = 5
+# ==========================
+
+
+# Read file
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    content = f.read()
+
+# Split into subtitle blocks (keep empty ones)
+blocks = content.split("\n\n")
+
+total = len(blocks)
+
+# Make a copy for output
+new_blocks = blocks.copy()
+
+# Convert to 0-based indices
+start_idx = START_ENTRY - 1
+end_idx = min(END_ENTRY - 1, total - 1)
+
+# Move blocks up
+for i in range(start_idx, end_idx + 1):
+    new_blocks[i - SHIFT_UP] = blocks[i]
+
+# Leave the last shifted positions empty
+for i in range(end_idx - SHIFT_UP + 1, end_idx + 1):
+    if i < total:
+        new_blocks[i] = ""
+
+# Renumber entries (preserve text & timestamps)
+output_blocks = []
+
+for i, block in enumerate(new_blocks, start=1):
+    lines = block.splitlines()
+
+    if lines and lines[0].strip().isdigit():
+        lines[0] = str(i)
+        output_blocks.append("\n".join(lines))
+    else:
+        # Empty or malformed entry stays as-is
+        output_blocks.append(block)
+
+# Write output
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    f.write("\n\n".join(output_blocks))

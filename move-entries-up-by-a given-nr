@@ -1,7 +1,12 @@
-# This script reads the input.srt file.
-# And from the entry nr START_ENTRY till the entry nr END_ENTRY 
-# it moves all the entries up by SHIFT_UP positions.
-# The file with new changes is saved as output.srt.
+# This script reads the INPUT_FILE file (an .srt file with timestamps and captions).
+# The script moves all the entries up by a specified number of positions (SHIFT_UP)
+# starting from the entry nr START_ENTRY until the entry nr END_ENTRY.
+# The script saves all the changes in the output file (OUTPUT_FILE).
+# Place your INPUT_FILE in the same folder as the script.
+# Known issue: 
+# The first moved entry keeps its original number in the OUTPUT_FILE.
+# You need to correct this number manually. All the subsequent numbers
+# are aligned with the new flow.
 
 # ========= CONFIG =========
 INPUT_FILE = "input.srt"      # change later

@@ -9,7 +9,8 @@ Examples of such actions can be the following:
 
 * **Enforce a minimum time distance between the entries and a minimum entry duration**
   
-  Make sure the timestamps are minimum 100 milliseconds apart from each other AND the duration of an entry is minimum 500 milliseconds.
+  Make sure the timestamps are minimum 100 milliseconds apart from each other and the duration of an entry is minimum 500 milliseconds.
+  See: [min-gap-min-duration](https://github.com/yad-viga/subtitles/blob/main/min-gap-min-duration.py)
 
 * **Move the entries up**
   

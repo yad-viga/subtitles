@@ -1,5 +1,5 @@
 # subtitles
-This repository contains scripts I used to process .srt files.
+This repository contains scripts to process .srt files.
 
 An SRT file is a plain text subtitle file that contains dialogue and timestamps, used to display captions or subtitles on videos.
 
@@ -9,7 +9,10 @@ Examples of such actions can be the following:
 
 *) Make sure the timestamps are minimum 100 milliseconds apart from each other AND the duration of an entry is minimum 500 milliseconds.
 
-*) Move all the entries, starting from a given entry (eg. from entry nr 53), up by 10 positions. Move only the text, not its timing. Keep the timing as it was in the original file.
+*) Move all the entries, starting from a given entry, up by a given nr of positions. 
+For example, move all the entries up by 10 positions, starting from entry nr 53.
+Move only the text, not its timing. Keep the timing as it was in the original file.
+See: [move-entries-up-by-a-given-nr](https://github.com/yad-viga/subtitles/blob/main/move-entries-up-by-a-given-nr)
 
 More details about each script are commented out in respective files.
 The filenames are self-describing.
